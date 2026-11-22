@@ -1,4 +1,4 @@
-# lab-kit
+# lab-kit by GotUrBack-Public
 
 ![Creator](https://img.shields.io/badge/creator-GotUrBack--Public-181717?logo=github&logoColor=white)
 ![Maintained](https://img.shields.io/badge/maintained-active-brightgreen)
