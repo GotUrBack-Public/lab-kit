@@ -1,21 +1,36 @@
 # Security Policy
 
-## Supported Versions
+## Scope
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+lab-kit is a security research and educational project. Security reports are welcome for vulnerabilities in the repository, its documentation, scripts, workflows, and any future tools.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## Supported versions
 
-## Reporting a Vulnerability
+| Version | Supported |
+| --- | --- |
+| v0.27.x | Yes |
+| Earlier versions | No guarantee |
 
-Use this section to tell people how to report a vulnerability.
+## Reporting a vulnerability
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+**Please do not report exploitable vulnerabilities in a public issue.**
+
+Use GitHub's private vulnerability reporting for this repository, if enabled:
+https://github.com/GotUrBack-Public/lab-kit/security/advisories/new
+
+If private reporting is unavailable, contact the maintainer through the GitHub profile:
+https://github.com/GotUrBack-Public
+
+Include:
+- A clear description and potential impact.
+- The affected file, component, or commit.
+- Reproduction steps or a proof of concept that does not access third-party systems or expose real data.
+- Any suggested mitigation, if known.
+
+## Response expectations
+
+The maintainer will acknowledge reports when reasonably possible, assess their validity and impact, and coordinate a fix and disclosure with the reporter. Please allow time for investigation before making details public.
+
+## Safe-h harbor
+
+Good-faith research performed within the scope above is appreciated. Do not access, modify, disrupt, or exfiltrate data from systems without explicit authorization.
