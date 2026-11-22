@@ -34,3 +34,8 @@ The maintainer will acknowledge reports when reasonably possible, assess their v
 ## Safe-h harbor
 
 Good-faith research performed within the scope above is appreciated. Do not access, modify, disrupt, or exfiltrate data from systems without explicit authorization.
+
+
+
+
+
