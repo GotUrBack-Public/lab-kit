@@ -4,7 +4,7 @@
 ![Maintained](https://img.shields.io/badge/maintained-active-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-Git-orange?logo=git&logoColor=white)
 ![Version](https://img.shields.io/badge/version-v0.27.8-blue)
-![Last commit](https://img.shields.io/github/last-commit/GotUrBack-Public/lab-kit?label=)
+![Commit](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FGotUrBack-Public%2Flab-kit%2Fbadges%2Fcommit.json)
 ![License](https://img.shields.io/github/license/GotUrBack-Public/lab-kit)
 
 **lab-kit** is an open research lab for studying security concepts, malware behavior, reverse engineering, and defensive techniques.
