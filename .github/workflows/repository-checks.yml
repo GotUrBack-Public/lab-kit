@@ -1,0 +1,33 @@
+name: Repository checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository-checks:
+    name: Repository hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check for accidental whitespace and conflict markers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -n -I -E '^(<<<<<<< |=======|>>>>>>> )' -- ':!*.lock'; then
+            echo "::error::Merge-conflict markers found."
+            exit 1
+          fi
+          if git grep -n -I -E '[[:blank:]]+$' -- '*.md' '*.yml' '*.yaml'; then
+            echo "::error::Trailing whitespace found in Markdown/YAML files."
+            exit 1
+          fi
+          echo "Repository hygiene checks passed."
