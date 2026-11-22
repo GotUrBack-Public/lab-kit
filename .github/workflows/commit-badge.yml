@@ -1,0 +1,53 @@
+name: Update short commit badge
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: commit-badge
+  cancel-in-progress: true
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Publish short commit SHA
+        shell: bash
+        env:
+          TARGET_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          SHORT_SHA="$(git rev-parse --short=7 "$TARGET_SHA")"
+
+          if git fetch origin badges; then
+            git checkout -B badges FETCH_HEAD
+          else
+            git checkout --orphan badges
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+
+          mkdir -p .
+          printf '{"schemaVersion":1,"label":"commit","message":"%s","color":"blue"}\n' "$SHORT_SHA" > commit.json
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add commit.json
+
+          if git diff --cached --quiet; then
+            echo "Commit badge is already up to date."
+          else
+            git commit -m "chore: update short commit badge to $SHORT_SHA"
+            git push origin HEAD:badges
+          fi
